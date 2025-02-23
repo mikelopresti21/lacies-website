@@ -13,8 +13,14 @@ export class ContactFormComponent {
 
   constructor(private emailsService: EmailsService) {}
 
-  submit() {
+  submit(contactForm: any) {
     console.log('from contact form');
-    this.emailsService.sendEmail();
+    const formData = {
+      name: contactForm.controls.name.value,
+      email: contactForm.controls.email.value,
+      message: contactForm.controls.message.value,
+    }
+
+    this.emailsService.sendEmail(formData);
   }
 }

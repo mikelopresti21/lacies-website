@@ -10,8 +10,12 @@ export class EmailsService {
 
   constructor(private http: HttpClient) { }
 
-  sendEmail(){
+  sendEmail(formData: any){
     console.log('from email service');
-    this.http.post(this.apiUrl, 'test');
+    return this.http.post(this.apiUrl, formData)
+      .subscribe({
+        next: response => console.log('success', response),
+        error: error => console.error(error)
+      });
   }
 }

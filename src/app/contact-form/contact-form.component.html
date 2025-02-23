@@ -1,4 +1,4 @@
-<form class="contact-form" (ngSubmit)="submit()" #contactForm="ngForm">
+<form class="contact-form" (ngSubmit)="submit(contactForm)" #contactForm="ngForm">
     <p class="contact-form-title">I look forward to hearing from you!</p>
     <div class="contact-form-info-container">
         <input 
@@ -6,12 +6,14 @@
             name="name" 
             placeholder="Enter your name"
             ngModel
+            #name="ngModel"
         />
         <input 
             type="text" 
             name="email" 
             placeholder="Enter your email"
             ngModel
+            #email="ngModel"
         />
     </div>
     <textarea 
@@ -19,6 +21,7 @@
         name="message" 
         placeholder="Your message" 
         ngModel
+        #message="ngModel"
     ></textarea>
     <div>
         <button class="contact-form-button" type="submit" >Send Email</button>
