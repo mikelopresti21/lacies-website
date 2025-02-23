@@ -15,7 +15,6 @@ export class ContactFormComponent {
   constructor(private emailsService: EmailsService) {}
 
   submit(contactForm: any) {
-    console.log('from contact form');
     
     const formData = {
       name: contactForm.controls.name.value,
@@ -29,6 +28,7 @@ export class ContactFormComponent {
           window.alert("Email was sent successfully! Thank you for reaching out, I will follow up with you as soon as I can");
         },
         error: error => {
+          console.log(error);
           window.alert("Failed to send email! Please make sure you are entering a valid email address");
         }
       });
