@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { EmailService } from '../services/email.service';
-
+import { EmailsService } from '../services/emails.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,17 +11,10 @@ import { EmailService } from '../services/email.service';
 
 export class ContactFormComponent {
 
-  constructor(private emailService: EmailService) {}
+  constructor(private emailsService: EmailsService) {}
 
-  submit(contactForm: any) {
-    
-    this.emailService.sendEmail(contactForm).subscribe(
-      (response) => {
-        console.log('success');
-      },
-      (error) => {
-        console.log('failed');
-      }
-    );
+  submit() {
+    console.log('from contact form');
+    this.emailsService.sendEmail();
   }
 }
