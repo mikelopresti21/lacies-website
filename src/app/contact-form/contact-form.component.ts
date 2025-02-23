@@ -15,6 +15,7 @@ export class ContactFormComponent {
 
   submit(contactForm: any) {
     console.log('from contact form');
+    
     const formData = {
       name: contactForm.controls.name.value,
       email: contactForm.controls.email.value,
