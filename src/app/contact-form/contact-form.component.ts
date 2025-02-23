@@ -25,6 +25,7 @@ export class ContactFormComponent {
     this.emailsService.sendEmail(formData)
       .subscribe({
         next: response => {
+          console.log(response);
           window.alert("Email was sent successfully! Thank you for reaching out, I will follow up with you as soon as I can");
         },
         error: error => {
