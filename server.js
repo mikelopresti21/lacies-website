@@ -37,8 +37,8 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
 });
 
-const PORT = "https://lacies-website.vercel.app";
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-    console.log(`server running on : ${PORT}`);
+    console.log(`server running on ${PORT}`);
 });
