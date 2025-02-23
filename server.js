@@ -41,7 +41,9 @@ app.post('/contact', (req, res) => {
         if (error) {
             return res.status(500).send(`Error sending email: ${error}`);
         }
-        res.status(200).send('Email sent successfully');
+        res.status(200).send({
+            message: 'Email sent successfully'
+        });
     });
 
     transporter.sendMail(autoReply, (error, info) => {
