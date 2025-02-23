@@ -41,16 +41,13 @@ app.post('/contact', (req, res) => {
         if (error) {
             return res.status(500).send(`Error sending email: ${error}`);
         }
-        res.status(200).send({
-            message: 'Email sent successfully'
+
+        transporter.sendMail(autoReply, (error, info) => {
+            if (error) {
+                return res.status(500).send(`Error sending auto reply: ${error}`);
+            }
         });
     });
-
-    transporter.sendMail(autoReply, (error, info) => {
-        if (error) {
-            return res.status(500).send(`Error sending auto reply: ${error}`);
-        }
-    })
 
     res.status(200).send({
         message: "Email and auto reply sent successfully"

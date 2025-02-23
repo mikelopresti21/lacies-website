@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class EmailsService {
 
-  private apiUrl = "https://lacies-website.vercel.app/contact"
+  // private apiUrl = "https://lacies-website.vercel.app/contact"
+  private apiUrl = "http://localhost:3000/contact"
 
   constructor(private http: HttpClient) { }
 
