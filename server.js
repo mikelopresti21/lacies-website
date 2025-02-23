@@ -1,6 +1,8 @@
+const { error } = require("console");
 const express = require("express");
 const nodemailer = require("nodemailer")
 const path = require("path");
+const { text } = require("stream/consumers");
 
 const app = express();
 const distPath = path.join(__dirname, "dist", "lacies-website", "browser");
@@ -21,19 +23,33 @@ app.post('/contact', (req, res) => {
 
     const {name, email, message} = req.body;
 
-    const mailOptions = {
+    const contactEmail = {
         from: email,
         to: 'mikelopresti21@gmail.com',
         subject: `Message from ${name}`,
         text: message
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    const autoReply = {
+        from: 'mikelopresti21@gmail.com',
+        to: email,
+        subject: 'Thanks for contacting me at LaciePerez.com',
+        text: `Hello ${name}!,\n Thanks for reaching out to me! I'll follow up with you as soon as I can!\n Thanks, Lace`
+    }
+
+    transporter.sendMail(contactEmail, (error, info) => {
         if (error) {
             return res.status(500).send(`Error sending email: ${error}`);
         }
         res.status(200).send('Email sent successfully');
     });
+
+    transporter.sendMail(autoReply, (error, info) => {
+        if (error) {
+            return res.status(500).send(`Error sending auto reply: ${error}`);
+        }
+        res.status(200).send('Auto reply email sent successfully');
+    })
 });
 
 app.get("*", (req, res) => {
