@@ -20,10 +20,18 @@
     gap: 1rem;
 }
 
+.contact-form-message {
+    height: 100px;
+}
+
 .contact-form-button {
     background-color: white;
     color: slateblue;
     border-radius: 100px;
     border-style: none;
     padding: 0.5rem;
+}
+
+.contact-form-button:hover {
+    cursor: pointer;
 }

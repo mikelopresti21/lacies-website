@@ -1,12 +1,27 @@
-<form class="contact-form">
+<form class="contact-form" (ngSubmit)="submit(contactForm)" #contactForm="ngForm">
     <p class="contact-form-title">I look forward to hearing from you!</p>
     <div class="contact-form-info-container">
-        <input type="text" name="name" placeholder="Enter your name"/>
-        <input type="text" name="email" placeholder="Enter your email"/>
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Enter your name"
+            ngModel
+        />
+        <input 
+            type="text" 
+            name="email" 
+            placeholder="Enter your email"
+            ngModel
+        />
     </div>
-    <textarea name="message" placeholder="Your message"></textarea>
+    <textarea 
+        class="contact-form-message" 
+        name="message" 
+        placeholder="Your message" 
+        ngModel
+    ></textarea>
     <div>
-        <button class="contact-form-button" type="submit">Send Email</button>
+        <button class="contact-form-button" type="submit" >Send Email</button>
     </div>
 </form>
 
