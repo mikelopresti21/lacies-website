@@ -1,0 +1,36 @@
+.hero-container{
+    margin-top: 2rem;
+    line-height: 0rem;
+}
+
+.hero-image{
+    width: 150px;
+    height: 150px;
+    border: solid slateblue 5px;
+    border-radius: 100px;
+    /* background-image: url(../images/WizOff_Cover.jpg); */
+    background-size: contain;
+    margin-inline: auto;
+    animation: float 1s ease 0s infinite alternate none;
+}
+
+.hero-name{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-description{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+@keyframes float {
+    from{
+        transform: translateY(0);
+    }
+
+    to{
+        transform: translateY(-3px);
+    }
+}
