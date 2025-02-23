@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmailsService {
 
-  private apiUrl = "http://localhost:3000/contact"
+  private apiUrl = "https://lacies-website.vercel.app/contact"
 
   constructor(private http: HttpClient) { }
 
