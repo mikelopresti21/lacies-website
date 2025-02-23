@@ -4,6 +4,6 @@
       { "src": "dist/lacies-website/browser/**/*", "use": "@vercel/static" }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "server.js" }
+      { "src": "/(.*)", "dest": "/server.js" }
     ]
 }
