@@ -1,6 +1,5 @@
 {
     "builds": [
-      { "src": "server.js", "use": "@vercel/node" },
       { "src": "dist/lacies-website/browser/**/*", "use": "@vercel/static" }
     ]
 
