@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class EmailService {
-  private expressUrl = "http://localhost:3000"
+  private expressUrl = "http://localhost:3000/send-email"
 
   constructor(private http: HttpClient) { }
 
