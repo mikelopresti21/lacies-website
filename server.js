@@ -34,7 +34,7 @@ app.post('/contact', (req, res) => {
         from: 'mikelopresti21@gmail.com',
         to: email,
         subject: 'Thanks for contacting me at LaciePerez.com',
-        text: `Hello ${name}!,\n Thanks for reaching out to me! I'll follow up with you as soon as I can!\n Thanks, Lace`
+        text: `Hello ${name}!\n Thanks for reaching out to me! I'll follow up with you as soon as I can!\n Thanks,\n Lace`
     }
 
     transporter.sendMail(contactEmail, (error, info) => {
