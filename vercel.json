@@ -1,7 +1,7 @@
 {
   "builds": [
     { "src": "server.js", "use": "@vercel/node" },
-    { "src": "dist/browser/**/*", "use": "@vercel/static" }
+    { "src": "dist/lacies-website/browser", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/server.js" }
