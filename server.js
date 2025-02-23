@@ -50,10 +50,11 @@ app.post('/contact', (req, res) => {
         if (error) {
             return res.status(500).send(`Error sending auto reply: ${error}`);
         }
-        res.status(200).send({
-            message: "Auto reply email sent successfully"
-        });
     })
+
+    res.status(200).send({
+        message: "Email and auto reply sent successfully"
+    });
 });
 
 app.get("*", (req, res) => {
