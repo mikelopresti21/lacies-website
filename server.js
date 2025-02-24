@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-app.post('/contact', async (req, res) => {
+app.post('/contact', (req, res) => {
 
     const {name, email, message} = req.body;
 
@@ -37,13 +37,13 @@ app.post('/contact', async (req, res) => {
         text: `Hello ${name}!\n Thanks for reaching out to me! I'll follow up with you as soon as I can!\n Thanks,\n Lace`
     }
 
-    await transporter.sendMail(contactEmail, (error, info) => {
+    transporter.sendMail(contactEmail, (error, info) => {
         if (error) {
             return res.status(500).send(`Error sending email: ${error}`);
         }
     });
 
-    await transporter.sendMail(autoReply, (error, info) => {
+    transporter.sendMail(autoReply, (error, info) => {
         if (error) {
             return res.status(500).send(`Error sending auto reply: ${error}`);
         }
