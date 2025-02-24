@@ -37,21 +37,14 @@ app.post('/contact', async (req, res) => {
         text: `Hello ${name}!\n Thanks for reaching out to me! I'll follow up with you as soon as I can!\n Thanks,\n Lace`
     }
 
-    await transporter.sendMail(contactEmail, (error, info) => {
-        if (error) {
-            return res.status(500).send(`Error sending email: ${error}`);
-        }
-    });
-
-    await transporter.sendMail(autoReply, (error, info) => {
-        if (error) {
-            return res.status(500).send(`Error sending auto reply: ${error}`);
-        }
-    });
-
-    res.status(200).send({
-        message: "Email and auto reply sent successfully"
-    });
+    try {
+        await transporter.sendMail(contactEmail);
+        await transporter.sendMail(autoReply);
+        res.status(200).send({ message: "Email and auto-reply sent successfully" });
+    } catch (error) {
+        res.status(500).send({ error: `Error sending email: ${error.message}` });
+    }
+    
 });
 
 app.get("*", (req, res) => {
